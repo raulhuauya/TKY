@@ -7,7 +7,9 @@ import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 
 export default defineConfig({
+    // La configuración más importante:
     output: "static",
+
     site: "https://tukuylabs.com", 
     vite: {
         plugins: [tailwindcss()],
