@@ -2,21 +2,29 @@
 import { defineConfig } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
+
+import vercel from "@astrojs/vercel";
+
 import react from "@astrojs/react";
+
 import sitemap from "@astrojs/sitemap";
+
 import partytown from "@astrojs/partytown";
 
+// https://astro.build/config
 export default defineConfig({
-    // La configuración más importante:
-    output: "static",
-
-    site: "https://tukuylabs.com", 
-    vite: {
-        plugins: [tailwindcss()],
-    },
-    integrations: [
-        react(),
-        sitemap(),
-        partytown({ config: { forward: ["dataLayer.push"] } }),
-    ],
+	vite: {
+		plugins: [tailwindcss()],
+	},
+	experimental: {
+		svg: true,
+	},
+	output: "server",
+	adapter: vercel(),
+	site: "https://tukuylabs.com",
+	integrations: [
+		react(),
+		sitemap(),
+		partytown({ config: { forward: ["dataLayer.push"] } }),
+	],
 });
