@@ -1,0 +1,96 @@
+@import "tailwindcss";
+@font-face {
+  font-family: "Archivo";
+  src: url("/fonts/ArchivoBlack-Regular.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Varela Round";
+  src: url("/fonts/VarelaRound-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter bold";
+  src: url("/fonts/Inter24pt-Bold.woff2") format("woff2"),
+    url("/fonts/Inter24pt-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter italic";
+  src: url("/fonts/Inter24pt-Italic.woff2") format("woff2"),
+    url("/fonts/Inter24pt-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter ExtraBold";
+  src: url("/fonts/Inter24pt-ExtraBold.woff2") format("woff2"),
+    url("/fonts/Inter24pt-ExtraBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-archivo: "Archivo", sans-serif;
+  --font-varela: "Varela Round", sans-serif;
+  --font-inter-bold: "Inter bold", sans-serif;
+  --font-inter-italic: "Inter italic", sans-serif;
+  --font-inter-extrabold: "Inter ExtraBold", sans-serif;
+
+  /*        Colors       = */
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-blue-gray: #364667;
+
+  /*        Desktop       = */
+
+  --text-d-display: 50px;
+  --text-d-h1: 48px;
+  --text-d-h2: 36px;
+  --text-d-h3: 28px;
+  --text-d-h4: 22px;
+  --text-d-h5: 18px;
+  --text-d-body: 16px;
+  --text-d-body-sm: 14px;
+  --text-d-sm: 12px;
+  --text-d-btn: 16px;
+
+  /*        Tablet       = */
+
+  --text-t-display: 38px;
+  --text-t-h1: 36px;
+  --text-t-h2: 28px;
+  --text-t-h3: 24px;
+  --text-t-h4: 18px;
+  --text-t-h5: 16px;
+  --text-t-body: 16px;
+  --text-t-body-sm: 14px;
+  --text-t-sm: 12px;
+  --text-t-btn: 14px;
+
+  /*        Mobile         = */
+
+  --text-m-display: 36px;
+  --text-m-h1: 28px;
+  --text-m-h2: 24px;
+  --text-m-h3: 20px;
+  --text-m-h4: 16px;
+  --text-m-h5: 14px;
+  --text-m-body: 15px;
+  --text-m-body-sm: 12px;
+  --text-m-sm: 12px;
+  --text-m-btn: 15px;
+}

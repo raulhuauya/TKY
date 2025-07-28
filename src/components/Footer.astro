@@ -1,0 +1,64 @@
+---
+import FooterLogo from "../assets/footer-logo.svg";
+import WhatsappIcon from "../assets/whatsapp-icon.svg";
+import LinkedinIcon from "../assets/linkedin-icon.svg";
+//import InstagramIcon from "../assets/instagram-icon.svg";
+---
+
+<footer
+  class="px-4 bg-[#07111E] text-[#DFDFDF] flex flex-col items-center justify-center text-center gap-y-4 font-varela text-m-body-sm py-9
+    sm:flex-row sm:justify-between sm:px-8 sm:text-left sm:text-tbody-sm
+    lg:text-d-body-sm/[180%] lg:py-13 lg:items-center
+    2xl:py-16"
+>
+  <div
+    class="flex flex-col gap-y-4 justify-center items-center  2xl:flex"
+  >
+    <FooterLogo
+      width={140}
+      height={20}
+      class=" 2xl:block 2xl:w-[213px] 2xl:h-[33px]"
+    />
+    <p class="max-w-[193px] sm:hidden">
+      Estamos especializados en tecnologías ágiles y métodos de crecimiento
+      exponencial con la ayuda de tecnología empresarial.
+    </p>
+  </div>
+  <div>
+    <h5>Dirección:</h5>
+    <p>Av. Guillermo Prescott 137, San Isidro</p>
+    <p>Lima, Perú</p>
+  </div>
+  <div class="flex flex-col gap-y-1.5 sm:items-start lg:flex-row items-center justify-center lg:gap-x-8 xl:gap-x-26">
+      <div>
+          <h5>Razón Social:</h5>
+          <p>TukuyLabs S.A.C</p>
+
+      </div>
+      <div>
+        <p>comercial@tukuylabs.com</p>
+        <a
+            href={"/avisodeprivacidad"}
+            class=" block underline underline-offset-8 decoration-[#DFDFDF] hover:decoration-white text-white"
+            >
+            Aviso de privacidad
+        </a>
+
+    </div>
+  </div>
+
+  <div class="flex gap-x-4 sm:flex-col lg:flex-row lg:gap-x-10 sm:gap-y-4 mt-4 sm:mt-0">
+    <a href="https://wa.me/51997573864" class="w-fit cursor-pointer">
+      <WhatsappIcon width={25} height={25} fill="white" />
+    </a>
+    <a
+      href="https://www.linkedin.com/company/tukuy-labs"
+      class="w-fit cursor-pointer"
+    >
+      <LinkedinIcon width={25} height={25} fill="white" />
+    </a>
+    <!-- <a href="" class="w-fit cursor-pointer"> -->
+    <!--   <InstagramIcon width={20} height={20} fill="white" /> -->
+    <!-- </a> -->
+  </div>
+</footer>

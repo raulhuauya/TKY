@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1000" height="1000"><style>
+    #light-icon {
+      display: inline;
+    }
+    #dark-icon {
+      display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #light-icon {
+        display: none;
+      }
+      #dark-icon {
+        display: inline;
+      }
+    }
+  </style><g id="light-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1000" height="1000"><g><g transform="matrix(1.658374792703151,0,0,1.658374792703151,0,296.849087893864)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="603" height="245"><svg width="603" height="245" viewBox="0 0 603 245" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_976_227)">
+<path d="M501.129 100.302L588.65 0H491.488L404.79 104.189V0V145.595C404.79 178.879 394.302 204.266 373.325 221.756C359.782 232.666 343.811 240.152 326.762 243.58H404.79V189.019L447.317 154.34L497.99 243.58H590.443L501.129 100.302Z" fill="#344967"></path>
+<path d="M404.64 0H326.313V144.549C326.849 156.427 322.87 168.069 315.177 177.135C311.057 181.412 306.053 184.737 300.515 186.88C294.978 189.023 289.039 189.932 283.113 189.542C277.234 189.943 271.338 189.054 265.838 186.936C260.338 184.819 255.368 181.525 251.274 177.285C243.605 168.154 239.68 156.457 240.288 144.549V67.7898H162.035V145.595C162.035 178.854 172.499 204.266 193.725 221.756C214.951 239.245 244.772 247.99 283.412 247.99C297.882 248.122 312.321 246.643 326.463 243.58V0H404.64Z" fill="#D34D5C"></path>
+<path d="M404.642 0V145.595C404.642 178.929 394.129 204.316 373.102 221.756C359.543 232.638 343.578 240.121 326.539 243.58V0H404.642Z" fill="#E6E6E6"></path>
+<path d="M240.511 0V67.7898H161.81V243.729H83.558V62.4085H3.51172V0H162.932H240.511Z" fill="#E6E6E6"></path>
+</g>
+<defs>
+<clipPath id="clip0_976_227">
+<rect width="603" height="245" fill="white"></rect>
+</clipPath>
+</defs>
+</svg></svg></g></g></svg></g><g id="dark-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath1622)"><rect width="1000" height="1000" fill="#9a9a9a"></rect><g transform="matrix(1.3266998341625207,0,0,1.3266998341625207,100,337.4792703150912)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="603" height="245"><svg width="603" height="245" viewBox="0 0 603 245" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_976_227)">
+<path d="M501.129 100.302L588.65 0H491.488L404.79 104.189V0V145.595C404.79 178.879 394.302 204.266 373.325 221.756C359.782 232.666 343.811 240.152 326.762 243.58H404.79V189.019L447.317 154.34L497.99 243.58H590.443L501.129 100.302Z" fill="#344967"></path>
+<path d="M404.64 0H326.313V144.549C326.849 156.427 322.87 168.069 315.177 177.135C311.057 181.412 306.053 184.737 300.515 186.88C294.978 189.023 289.039 189.932 283.113 189.542C277.234 189.943 271.338 189.054 265.838 186.936C260.338 184.819 255.368 181.525 251.274 177.285C243.605 168.154 239.68 156.457 240.288 144.549V67.7898H162.035V145.595C162.035 178.854 172.499 204.266 193.725 221.756C214.951 239.245 244.772 247.99 283.412 247.99C297.882 248.122 312.321 246.643 326.463 243.58V0H404.64Z" fill="#D34D5C"></path>
+<path d="M404.642 0V145.595C404.642 178.929 394.129 204.316 373.102 221.756C359.543 232.638 343.578 240.121 326.539 243.58V0H404.642Z" fill="#E6E6E6"></path>
+<path d="M240.511 0V67.7898H161.81V243.729H83.558V62.4085H3.51172V0H162.932H240.511Z" fill="#E6E6E6"></path>
+</g>
+<defs>
+<clipPath id="clip0_976_227">
+<rect width="603" height="245" fill="white"></rect>
+</clipPath>
+<clipPath id="SvgjsClipPath1622"><rect width="1000" height="1000" x="0" y="0" rx="250" ry="250"></rect></clipPath></defs>
+</svg></svg></g></g></svg></g></svg>

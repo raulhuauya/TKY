@@ -1,0 +1,56 @@
+---
+type InputType =
+  | "text"
+  | "email"
+  | "password"
+  | "tel"
+  | "number"
+  | "url"
+  | "search"
+  | "date"
+  | "datetime-local"
+  | "month"
+  | "week"
+  | "time"
+  | "color"
+  | "checkbox"
+  | "radio"
+  | "file"
+  | "hidden"
+  | "range"
+  | "submit"
+  | "reset"
+  | "button"
+  | "image";
+
+interface Props {
+  type: InputType;
+  name: string;
+  placeholder: string;
+  required?: boolean;
+  pattern?: string;
+  maxlength?: number;
+  minlength?: number;
+}
+
+const { 
+  type, 
+  name, 
+  placeholder, 
+  required = false,
+  pattern,
+  maxlength,
+  minlength
+} = Astro.props;
+---
+
+<input
+  type={type}
+  name={name}
+  placeholder={placeholder}
+  { ...(required ? { required: true } : {}) }
+  { ...(pattern ? { pattern } : {}) }
+  { ...(maxlength ? { maxlength } : {}) }
+  { ...(minlength ? { minlength } : {}) }
+  class="w-full p-3 rounded-sm border border-gray-300 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+/>

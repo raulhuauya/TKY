@@ -1,0 +1,19 @@
+---
+interface Props {
+    image?: string;
+    brandLogo?: string;
+    isRight?: boolean;
+}
+const { image, isRight, brandLogo } = Astro.props;
+---
+
+<section class="lg:flex lg:justify-center lg:items-center lg:px-8">
+    <div class={`lg:max-w-[1120px] lg:w-full ${isRight ? "lg:flex-row-reverse" : ""} sm:text-center flex flex-col items-center justify-center lg:flex-row lg:justify-start lg:gap-x-20`}>
+        <div class={` ${isRight ? "items-end text-right sm:text-center lg:text-right lg:items-end lg:justify-start" : "lg:items-start"} gap-y-6 flex flex-col text-[#324968] px-4 sm:max-w-[500px] lg:w-full lg:min-w-[50%] sm:items-center lg:text-left lg:maxw-[600px]`}>
+            {brandLogo && <img src={brandLogo} width={129} height={40} class="lg:w-[190px] lg:h-[65px]" alt="Brand Logo" />}
+            <slot />
+        </div>
+        <img src={image} alt="work" class="w-full h-[160px] object-cover mt-8 sm:h-[288px] lg:w-full lg:m-0 lg:rounded-md" />
+    </div>
+</section>
+

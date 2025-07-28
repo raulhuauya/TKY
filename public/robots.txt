@@ -1,0 +1,18 @@
+User-agent: *
+Disallow: /images/alex-user.webp
+
+User-agent: BadBot
+Disallow: /
+
+User-agent: EvilScraper
+Disallow: /
+
+User-agent: *
+Disallow: /*?sort=
+Disallow: /*?filter=
+Disallow: /*&sessionid=
+
+Allow: /
+
+Sitemap: https://tukuylabs.com/sitemap-index.xml
+

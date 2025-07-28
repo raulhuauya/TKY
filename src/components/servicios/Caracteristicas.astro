@@ -1,0 +1,18 @@
+---
+import IconMedidor from "../../assets/medidor-icon.svg";
+import IconMedalla from "../../assets/medalla-icon.svg";
+import Caracteristica from "./Caracteristica.astro";
+import Seguridad from "../../assets/security-icon.svg";
+import Personalizacion from "../../assets/perso-icon.svg";
+---
+
+<section
+	class="bg-[#0C1A2C] text-white font-archivo text-m-body flex flex-col items-center py-20">
+	<div
+		class="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-15 lg:max-w-[800px] sm:max-w-[500px]">
+		<Caracteristica Icon={IconMedidor} text="Agilidad" />
+		<Caracteristica Icon={IconMedalla} text="Flexibilidad" />
+		<Caracteristica Icon={Personalizacion} text="Personalización" />
+		<Caracteristica Icon={Seguridad} text="Seguridad" />
+	</div>
+</section>

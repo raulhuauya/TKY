@@ -1,0 +1,52 @@
+---
+import Logo from "../../assets/nav-logo.svg";
+import LinkedinIcon from "../../assets/linkedin-icon.svg";
+---
+
+<section class="py-16 flex flex-col items-center justify-center lg:py-25">
+  <div
+    class="flex flex-col sm:flex-row items-center justify-center max-w-[800px] w-full lg:justify-between 2xl:max-w-[1127px]"
+  >
+    <div class="sm:w-[50%] flex flex-col items-center">
+      <Logo width={179} height={27} class="mb-16 lg:w-[424px] lg:h-[63.96px]" />
+      <p
+        class="font-varela text-m-body/[16.9px] text-center max-w-[237px] text-[#8B8B8B] mb-9 sm:text-left sm:text-t-body lg:text-d-body lg:max-w-[424px] lg:text-center "
+      >
+      <!-- Nacimos con la misión de transformar negocios a través de la innovación y la tecnología. Trabajamos con pasión para ofrecer soluciones innovadoras que se adaptan a las necesidades de cada cliente. -->
+      Nacimos con la misión de transformar negocios a través de la digitalizacion, innovación y tecnología. Trabajamos con pasión para ofrecer soluciones digitales innovadoras que se adaptan a las necesidades de cada cliente.
+      </p>
+    </div>
+
+    <figure class="w-[50%] flex flex-col items-center lg:items-center lg:w-fit">
+      <img
+        src="/images/alex-user.webp"
+        alt="Imagen del usuario"
+        class="w-[142px] h-[164px] mb-8 lg:w-[182px] lg:h-[210.2px] rounded-2xl"
+      />
+      <figcaption
+        class="flex flex-col items-center justify-center gap-3 sm:flex-row-reverse lg:flex-col lg:justify-center sm:gap-x-8"
+      >
+        <div
+          class="flex flex-col justify-center items-center sm:items-start lg:items-center"
+        >
+          <h5
+            class="font-inter-bold text-m-h4 text-blue-gray sm:text-t-h4 lg:text-d-h4"
+          >
+                        CEO & Founder
+          </h5>
+          <p
+            class="font-varela text-m-body text-blue-gray sm:text-t-body lg:text-d-body"
+          >
+            Alex Cruz
+          </p>
+        </div>
+        <a
+          href="https://www.linkedin.com/company/tukuy-labs"
+          class="w-fit cursor-pointer"
+        >
+          <LinkedinIcon width={40} height={40} class="fill-blue-gray" />
+        </a>
+      </figcaption>
+    </figure>
+  </div>
+</section>

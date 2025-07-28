@@ -1,0 +1,259 @@
+---
+import Input from "./Input.astro";
+import Select from "./Select.astro"
+import { countries } from "../../data/countries";
+---
+
+<form class="w-full mt-8" method="POST" id="form" novalidate>
+    <div class="space-y-4 flex flex-col gap-y-6">
+        <div class="flex flex-col gap-y-2.5">
+            <Input 
+                type="text" 
+                name="first_name" 
+                placeholder="First Name*" 
+                required={true}
+                minlength={2}
+                maxlength={50}
+                pattern="^[a-zA-ZÀ-ÿ\s]{2,50}$"
+            />
+            <div class="error-message text-red-500 text-sm hidden" data-for="first_name"></div>
+            
+            <Input 
+                type="email" 
+                name="email" 
+                placeholder="Email*" 
+                required={true}
+            />
+            <div class="error-message text-red-500 text-sm hidden" data-for="email"></div>
+        </div>
+        <div class="flex flex-col gap-y-2.5">
+            <Input 
+                type="text" 
+                name="company" 
+                placeholder="Company Name" 
+                maxlength={100}
+            />
+            <div class="error-message text-red-500 text-sm hidden" data-for="company"></div>
+            
+            <Input 
+                type="tel" 
+                name="phone" 
+                placeholder="Business Phone" 
+                pattern="^[0-9+\-\s()]{6,20}$"
+            />
+            <div class="error-message text-red-500 text-sm hidden" data-for="phone"></div>
+            
+            <Select name="country" placeholder="Country" options={countries} required={true} />
+            <div class="error-message text-red-500 text-sm hidden" data-for="country"></div>
+        </div>
+        <div class="flex flex-col gap-y-2">
+            <textarea
+                name="message"
+                placeholder="Tell us about to start working on your project."
+                rows="5"
+                minlength="10"
+                maxlength="1000"
+                required
+                class="w-full p-3 rounded-sm border border-gray-300 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+            <div class="error-message text-red-500 text-sm hidden" data-for="message"></div>
+        </div>
+        <p class="text-xs text-gray-500 mt-2 self-center text-center">
+            Al enviarnos un mensaje, aceptas nuestra <a href="/avisodeprivacidad" class="underline hover:text-gray-700">política de privacidad</a>.
+        </p>
+
+        <button
+            type="submit"
+            class="w-full max-w-[150px] py-3 bg-[#8D2733] text-white font-semibold rounded-md hover:bg-[#78222C] cursor-pointer transition self-center disabled:opacity-50 disabled:cursor-not-allowed"
+            id="myButton"
+        >
+            {"contáctanos".toUpperCase()}
+        </button>
+    </div>
+</form>
+
+<div id="toast-notification" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-md shadow-lg opacity-0 transition-opacity duration-300 z-50">
+    Mensaje enviado correctamente
+</div>
+
+<style>
+    #toast-notification {
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+    #toast-notification.show {
+        opacity: 1;
+        visibility: visible;
+    }
+</style>
+
+<script>
+    import { actions } from "astro:actions";
+
+    interface ValidationMessages {
+        [key: string]: {
+            required?: string;
+            pattern?: string;
+            minlength?: string;
+            maxlength?: string;
+            email?: string;
+        }
+    }
+
+    document.addEventListener("astro:page-load", () => {
+        const form = document.getElementById("form") as HTMLFormElement;
+        const toast = document.getElementById("toast-notification") as HTMLDivElement;
+        const submitButton = document.getElementById("myButton") as HTMLButtonElement;
+        const errorMessages = document.querySelectorAll('.error-message');
+
+        // Input validation messages
+        const validationMessages: ValidationMessages = {
+            first_name: {
+                required: "El nombre es obligatorio",
+                pattern: "El nombre solo puede contener letras y espacios",
+                minlength: "El nombre debe tener al menos 2 caracteres",
+                maxlength: "El nombre no puede exceder 50 caracteres"
+            },
+            email: {
+                required: "El email es obligatorio",
+                email: "Por favor ingresa un email válido"
+            },
+            company: {
+                maxlength: "El nombre de la empresa no puede exceder 100 caracteres"
+            },
+            phone: {
+                pattern: "Número de teléfono no válido"
+            },
+            country: {
+                required: "El país es obligatorio"
+            },
+            message: {
+                required: "El mensaje es obligatorio",
+                minlength: "El mensaje debe tener al menos 10 caracteres",
+                maxlength: "El mensaje no puede exceder 1000 caracteres"
+            }
+        };
+
+        // Show error message for a field
+        const showError = (field: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement, message: string) => {
+            const errorDiv = document.querySelector(`[data-for="${field.name}"]`);
+            if (errorDiv) {
+                errorDiv.textContent = message;
+                errorDiv.classList.remove('hidden');
+                field.classList.add('border-red-500');
+            }
+        };
+
+        // Clear error message for a field
+        const clearError = (field: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement) => {
+            const errorDiv = document.querySelector(`[data-for="${field.name}"]`);
+            if (errorDiv) {
+                errorDiv.textContent = '';
+                errorDiv.classList.add('hidden');
+                field.classList.remove('border-red-500');
+            }
+        };
+
+        // Validate a single field
+        const validateField = (field: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement): boolean => {
+            clearError(field);
+            const messages = validationMessages[field.name];
+            
+            if (!field.value.trim() && field.hasAttribute('required')) {
+                showError(field, messages.required || "Este campo es obligatorio");
+                return false;
+            }
+
+            if (field.type === 'email' && field.value) {
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if (!emailRegex.test(field.value)) {
+                    showError(field, messages.email || "Email inválido");
+                    return false;
+                }
+            }
+
+            if (field instanceof HTMLInputElement && field.pattern && field.value) {
+                const regex = new RegExp(field.pattern);
+                if (!regex.test(field.value)) {
+                    showError(field, messages.pattern || "Formato inválido");
+                    return false;
+                }
+            }
+
+            const minLength = field.getAttribute('minlength');
+            if (minLength && field.value.length < parseInt(minLength)) {
+                showError(field, messages.minlength || `Mínimo ${minLength} caracteres`);
+                return false;
+            }
+
+            const maxLength = field.getAttribute('maxlength');
+            if (maxLength && field.value.length > parseInt(maxLength)) {
+                showError(field, messages.maxlength || `Máximo ${maxLength} caracteres`);
+                return false;
+            }
+
+            return true;
+        };
+
+        // Add input event listeners for real-time validation
+        form.querySelectorAll('input, textarea, select').forEach((field) => {
+            field.addEventListener('input', () => {
+                validateField(field as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement);
+            });
+            field.addEventListener('blur', () => {
+                validateField(field as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement);
+            });
+        });
+
+        async function handleFormSubmit(e: Event) {
+            e.preventDefault();
+            
+            // Clear all previous error messages
+            errorMessages.forEach(msg => msg.classList.add('hidden'));
+            
+            // Validate all fields
+            let isValid = true;
+            form.querySelectorAll('input, textarea, select').forEach((field) => {
+                if (!validateField(field as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement)) {
+                    isValid = false;
+                }
+            });
+
+            if (!isValid) {
+                return;
+            }
+
+            submitButton.disabled = true;
+            toast.classList.add("show");
+            toast.textContent = "Enviando mensaje...";
+
+            try {
+                const formData = new FormData(form);
+                const { data, error } = await actions.send(formData);
+
+                if (error) {
+                    console.error("Error submitting form:", error);
+                    toast.textContent = error.message || "Error al enviar el mensaje";
+                    toast.style.backgroundColor = "#EF4444";
+                } else {
+                    form.reset();
+                    toast.textContent = "Mensaje enviado correctamente";
+                    toast.style.backgroundColor = "#10B981";
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                toast.textContent = "Error al enviar el mensaje";
+                toast.style.backgroundColor = "#EF4444";
+            } finally {
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                    submitButton.disabled = false;
+                }, 4000);
+            }
+        }
+
+        form.addEventListener("submit", handleFormSubmit);
+    });
+</script>

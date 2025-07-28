@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import About from '../components/inicio/About.astro';
+import Hero from '../components/inicio/Hero.astro';
+import Servicios from '../components/inicio/Servicios.astro';
+import Valores from '../components/inicio/Valores.astro';
+import Form from '../components/formulario/Form.astro';
+import { actions } from 'astro:actions';
+
+const result = Astro.getActionResult(actions.send);
+---
+
+<Layout title='Inicio'>
+	<Hero />
+	<Servicios />
+	<Valores />
+	<About />
+	<section
+		class='flex flex-col justify-center items-center bg-[#0C1A2C] py-10 px-4'>
+		<div class='container max-w-[520px]'>
+			<h1
+				class='font-inter-extrabold text-center text-m-h2/[120%] sm:text-t-h2 lg:text-d-h2/[100%] text-white mb-10'>
+				Somos una empresa de consultoría en DX, Innovación y Tecnología
+			</h1>
+
+			<Form />
+		</div>
+	</section>
+</Layout>
+
+<!-- Toast notification popup -->
+<div
+	id='toast-notification'
+	class='fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-md shadow-lg opacity-0 transition-opacity duration-300 z-50'>
+	Mensaje enviado correctamente
+</div>
+
+<style>
+	#toast-notification {
+		pointer-events: none;
+		opacity: 0;
+		visibility: hidden;
+		transition:
+			opacity 0.3s,
+			visibility 0.3s;
+	}
+	#toast-notification.show {
+		opacity: 1;
+		visibility: visible;
+	}
+</style>
+
+<script></script>

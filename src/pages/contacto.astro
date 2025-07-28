@@ -1,0 +1,118 @@
+---
+
+import Layout from "../layouts/Layout.astro";
+import WhatsappIcon from '../assets/whatsapp-icon.svg'
+import LinkedinIcon from '../assets/linkedin-icon.svg'
+//import InstagramIcon from '../assets/instagram-icon.svg'
+import Form from "../components/formulario/Form.astro";
+
+// const result = Astro.getActionResult(actions.send);
+
+---
+
+<Layout title="Contacto">
+<div class=" flex flex-col items-center justify-center bg-[#0C1A2C] py-12 px-4">
+    <div class="container sm:max-w-[640px] mb-16 
+        lg:flex lg:max-w-[960px] lg:gap-x-14">
+        <div class="flex  justify-center items-center gap-x-20 w-full mb-16 
+            lg:flex-col lg:items-start">
+            <div>
+                <h2 class="font-archivo text-m-h1/[120%] text-white mb-8">
+                    Impulsamos la transformación digital de tu negocio.
+                </h2>  
+                <p class="font-varela text-m-body/[120%] text-[#DFDFDF]">
+                    Estamos espacializados en la creación y ejecución de estrategias innovadoras y tecnologia personalizada.
+                </p>
+            </div>
+            <div class="hidden sm:flex flex-col gap-y-5 mt-10 ">
+                <div class="flex flex-col gap-y-2">
+                    <h2 class="font-archivo text-m-h4/[120%] text-white">
+                        Dirección:
+                    </h2>  
+                    <p class="font-varela text-m-body/[120%] text-[#DFDFDF]">
+                    Av. Guillermo Prescott 137, San Isidro
+                    </p>
+
+                </div>
+                <div class="flex flex-col gap-y-2">
+                    <h2 class="font-archivo text-m-h4/[120%] text-white">
+                        Teléfonos:
+                    </h2>  
+                    <p class="font-varela text-m-body/[120%] text-[#DFDFDF]">
+                    ( 51)  997 573 864
+                    </p>
+
+                </div>
+                <div class="flex flex-col gap-y-2">
+                    <h2 class="font-archivo text-m-h4/[120%] text-white">
+                        Correo:
+                    </h2>  
+                    <p class="font-varela text-m-body/[120%] text-[#DFDFDF]">
+                    comercial@tukuylabs.com
+                    </p>
+
+                </div>
+                <div class="flex justify-between gap-x-4 lg:justify-start lg:gap-x-12">
+                    <a href="https://wa.me/51997573864" class="w-fit cursor-pointer">
+                        <WhatsappIcon width={30} height={30} fill="white" />
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/company/tukuy-labs"
+                        class="w-fit cursor-pointer"
+                        >
+                        <LinkedinIcon width={30} height={30} fill="white" />
+                    </a>
+                        <!-- <InstagramIcon width={30} height={30} fill="white" /> -->
+                </div>
+            </div>
+        </div>
+        <Form />
+
+        <div class="sm:hidden flex flex-col gap-y-5 mt-10 items-center text-center">
+            <div class="flex flex-col gap-y-2">
+                <h2 class="font-archivo text-m-h4/[120%] text-white">
+                    Dirección:
+                </h2>  
+                <p class="font-varela text-m-body/[120%] text-[#DFDFDF]">
+                Av. Guillermo Prescott 137, San Isidro
+                </p>
+
+            </div>
+            <div class="flex flex-col gap-y-2">
+                <h2 class="font-archivo text-m-h4/[120%] text-white">
+                    Teléfonos:
+                </h2>  
+                <p class="font-varela text-m-body/[120%] text-[#DFDFDF]">
+                ( 51)  997 573 864
+                </p>
+
+            </div>
+            <div class="flex flex-col gap-y-2">
+                <h2 class="font-archivo text-m-h4/[120%] text-white">
+                    Correo:
+                </h2>  
+                <p class="font-varela text-m-body/[120%] text-[#DFDFDF]">
+                comercial@tukuylabs.com
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+</Layout>
+<div id="toast-notification-contact" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-md shadow-lg opacity-0 transition-opacity duration-300 z-50">
+    Mensaje enviado correctamente
+</div>
+<style>
+    #toast-notification-contact {
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+    #toast-notification-contact.show {
+        opacity: 1;
+        visibility: visible;
+    }
+</style>

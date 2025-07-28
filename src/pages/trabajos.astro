@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BannerBrands from "../components/trabajos/BannerBrands.astro";
+import Hero from "../components/trabajos/Hero.astro";
+import Work from "../components/trabajos/Work.astro";
+---
+
+<Layout title="Trabajos">
+    <Hero />
+    <div class="flex flex-col gap-y-28 lg:gap-y-44 py-20 lg:py-44 overflow-hidden">
+        <Work isRight={false} image="/images/trabajo1.webp" brandLogo={'/images/logo-cire.png'}>
+            <h2 class="font-inter-extrabold text-m-h2/[120%] sm:text-t-h2/[120%] lg:text-d-h2/[120%]">
+                Estrategia de Desarrollo de Producto HIS para Historia Clínica Electrónica
+            </h2>
+            <p class="font-varela text-m-body/[130%] text-[#909090] lg:text-d-body/[130%]">
+            Implementación de un sistema en la nube para digitalizar las historias clínicas, mejorando el acceso remoto a la información, optimizando la coordinación entre especialistas y aumentando la eficiencia en la atención al paciente.
+            </p>
+        </Work>
+        <!-- <Work isRight={true} image="/images/trabajo2.webp" brandLogo={BanbifIcon.src}> -->
+        <!--     <h2 class="font-inter-extrabold text-m-h2/[100%]  sm:text-t-h2/[120%] lg:text-d-h2/[120%]"> -->
+        <!--         Servicios en la Nube -->
+        <!--         y Administración -->
+        <!--         de Infraestructura IT                    </h2> -->
+        <!--     <p class="font-varela text-m-body/[130%] text-[#909090] lg:text-d-body/[130%]"> -->
+        <!--         Lorem ipsum dolor sit amed consecetur dolor ipsum lorem amet consecetur.Lorem ipsum dolor sor ipsum lorem amet consecetur.Lorem ipsum -->
+        <!--     </p> -->
+        <!-- </Work> -->
+        <!-- <Work isRight={false} image="/images/trabajo3.webp" brandLogo={CclIcon.src}> -->
+        <!--     <h2 class="font-inter-extrabold text-m-h2/[120%] sm:text-t-h2/[120%] lg:text-d-h2/[120%]"> -->
+        <!--         Desarrollo de Software -->
+        <!--     </h2> -->
+        <!--     <p class="font-varela text-m-body/[130%] text-[#909090] lg:text-d-body/[130%]"> -->
+        <!--         Lorem ipsum dolor sit amed consecetur dolor ipsum lorem amet consecetur.Lorem ipsum dolor sor ipsum lorem amet consecetur.Lorem ipsum -->
+        <!--     </p> -->
+        <!-- </Work> -->
+    </div>
+    <!-- <BannerBrands /> -->
+
+</Layout>

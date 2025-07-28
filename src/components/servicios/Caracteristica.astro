@@ -1,0 +1,18 @@
+---
+interface Props {
+  Icon: any;
+  text?: string;
+  width?: string | number;
+  height?: string | number;
+}
+
+const { Icon, text, width = 45, height = 45 } = Astro.props;
+---
+
+<figure class="flex flex-col items-center justify-center gap-y-9">
+  <div class="flex justify-center items-center bg-white w-fit px-6 py-7 rounded-3xl">
+    <Icon width={width} height={height} />
+  </div>
+  {text && <p>{text}</p>}
+</figure>
+
